@@ -1,0 +1,4 @@
+node_modules/
+menu.json
+.env
+public/images/uploadedimage/

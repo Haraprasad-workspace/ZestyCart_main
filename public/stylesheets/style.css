@@ -1,0 +1,168 @@
+@import "tailwindcss" ;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+
+    background: url('../images/img.jpg') no-repeat center center/cover;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    font-family: play;
+    font-size: 20px;
+    
+
+}
+
+main {
+    flex: 1;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(255, 236, 179, 0.5), rgba(245, 222, 179, 0.5));
+    z-index: -1;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #0f172a;
+    color: white;
+    position: sticky;
+    top: 0px;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links li a:hover {
+    color: teal;
+
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+}
+
+@media screen and (max-width:768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        right: 2rem;
+        top: 70px;
+        background-color: #0f172a;
+        width: 200px;
+        padding: 1rem;
+        border-radius: 0.5rem;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .hamburger span {
+        background: white;
+        height: 3px;
+        width: 25px;
+        margin: 3px 0;
+    }
+}
+
+/* for animation */
+
+/* .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-chile(2) {
+    opacity: 0;
+
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px)
+}
+
+.hamburger span {
+    transition: all 0.3s ease;
+}
+
+.nav-links {
+    transform: all 0.3s ease;
+} */
+p{
+    font-weight: 500;
+}
+/* footer here  */
+
+main{
+    flex:1;
+}
+
+.footer{
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding:20px 10px;
+    font-size: 16px;
+
+}
+.footer-content{
+    margin:50px 0px;
+}
+.social-icons{
+    margin:10px 0;
+}
+.social-icons img{
+    width:24px;
+    height: 24px;
+    /* filter:brightness(0) invert(1) ; */
+    transition: transform 0.3s ease;
+
+}
+.social-icons a:hover img{
+    transform : scale(1.2);
+}
+footer a{
+    text-decoration: none;
+    color:skyblue;
+
+}

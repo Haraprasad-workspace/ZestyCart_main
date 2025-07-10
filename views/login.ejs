@@ -1,0 +1,69 @@
+<!-- tailwindcss v3 -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login-ZestyCart</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <div class="login flex items-center justify-center min-h-screen ">
+
+        <form class="border-4 border-white-30 p-10 rounded-lg" action="/login" method="post">
+            <h2 class="text-center text-3xl text-white mb-7 font-bold">Login</h2>
+            <input name="email" type="email" placeholder="Email_id" required
+                class="w-full px-5 mb-4 py-3 rounded-lg bg-white-70 " />
+            <br>
+            <input name="password" type="password" placeholder="Password" required
+                class="w-full px-5 mb-4 py-3 rounded-lg bg-white-70" />
+            <br>
+            <input type="submit" value="Login" class="bg-yellow-400 p-1 mt-5 rounded-lg w-full">
+
+            <p class="text-xl mt-5">Not having account? <a class="no-underline text-blue-700" href="/register">Register
+                    here!</a></p>
+        </form>
+
+
+    </div>
+    <footer>
+        <div class="footer bg-zinc-800 text-white text-center font-light">
+            <p class="text-lg mb-2">&copy; 2025 ZestyCart. All Rights Reserved</p>
+
+            <div class="social-icons flex justify-center gap-6 my-4">
+                <a href="https://www.instagram.com" target="_blank">
+                    <img src="../images/instagram.jpeg" alt="Instagram"
+                        class="w-8 h-8 hover:scale-110 transition duration-300 rounded-full">
+                </a>
+                <a href="https://www.facebook.com" target="_blank">
+                    <img src="../images/facebook.jpeg" alt="Facebook"
+                        class="w-8 h-8 hover:scale-110 transition duration-300 rounded-full">
+                </a>
+                <a href="https://www.twitter.com" target="_blank">
+                    <img src="../images/twitter.png" alt="Twitter"
+                        class="w-8 h-8 hover:scale-110 transition duration-300 rounded-full">
+                </a>
+            </div>
+
+            <p class="text-md mb-1">Designed and developed by <span class="font-semibold">Haraprasad Mahapatra</span>
+            </p>
+
+            <p class="text-md">
+                <a href="https://www.linkedin.com/in/haraprasad-mahapatra-549a1a280/"
+                    class="text-teal-400 hover:underline hover:text-teal-300 transition duration-300" target="_blank">
+                    Click here to Connect
+                </a>
+            </p>
+        </div>
+
+    </footer>
+</body>
+
+</html>

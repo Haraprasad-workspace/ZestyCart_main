@@ -1,0 +1,110 @@
+<!-- tailwindcss v3 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZestyCart-Menu</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/menu.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+
+<body>
+    <!-- nav bar here -->
+    <nav class="navbar">
+        <div class="logo">ZestyCart</div>
+        <ul class="nav-links" id="navlinks">
+            <li><a href="/">Home</a> </li>
+            <li><a href="/menu">menu</a> </li>
+            <li><a href="/cart">cart</a> </li>
+            <li><a href="/logout">Logout</a> </li>
+            <li><a href="/admin_home">Admin</a> </li>
+        </ul>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+    <!-- --------- -- ------- -->
+    <main>
+        <h1 class="menu-title text-3xl font-bold tracking-tight mb-10 mt-3"> Menu</h1>
+        <div class="menu-container flex items-center" >
+
+            <% menuitem.forEach(item=>{ %>
+
+                <div class="menu-item w-50 h-fit bg-transparent border-2 rounded-md mr-5 ml-5 mb-10 <%=item.stockstatus=="out of stock"?"opacity-70 cursor-not-allowed":' ' %></div>">
+                    <div class="img w-full h-40 m-4">
+                        <img class="overflow-hidden h-40 w-full" src="/images/uploadedimage/<%=item.imageurl%>">
+                    </div>
+                    <p class="font-semibold text-xl text-zinc-800 mb-2 text-center"><%= item.itemname %></p>
+                    <p class="font-semibold text-xl text-zinc-800 mb-2 text-center"> <%= item.price%> </p>
+                    <p class=" text-xl text-red-700 font-bold mb-2 text-center"> <%= item.stockstatus%> </p>
+                    <div class="btns flex gap-3 start-0.5 end-0.5">
+
+                          
+                        <button class="rounded-md w-full p-3 mb-0 text-xl text-zinc-700 font-bold text-left">Add to
+                            cart</button>
+
+
+                       <a href="/addtocart/<%=item._id%>">
+                        <button <%=item.stockstatus=="out of stock"?"disabled":' ' %> class="mr-1 w-7 text-2xl bg-yellow-500 <%=item.stockstatus=="out of stock"?"opacity-50 cursor-not-allowed":' ' %> " >
+                            +
+                        </button>
+                    </a>
+                    </div>
+                </div>
+
+
+                <% }) %>
+
+
+
+        </div>
+        <div class="proceed">
+            <button id="proceed_bttn"><a href="/cart"> Proceed->>>></a></button>
+        </div>
+
+    </main>
+    <footer>
+        <div class="footer bg-zinc-800 text-white text-center font-light">
+            <p class="text-lg mb-2">&copy; 2025 ZestyCart. All Rights Reserved</p>
+
+            <div class="social-icons flex justify-center gap-6 my-4">
+                <a href="https://www.instagram.com" target="_blank">
+                    <img src="../images/instagram.jpeg" alt="Instagram"
+                        class="w-8 h-8 hover:scale-110 transition duration-300 rounded-full">
+                </a>
+                <a href="https://www.facebook.com" target="_blank">
+                    <img src="../images/facebook.jpeg" alt="Facebook"
+                        class="w-8 h-8 hover:scale-110 transition duration-300 rounded-full">
+                </a>
+                <a href="https://www.twitter.com" target="_blank">
+                    <img src="../images/twitter.png" alt="Twitter"
+                        class="w-8 h-8 hover:scale-110 transition duration-300 rounded-full">
+                </a>
+            </div>
+
+            <p class="text-md mb-1">Designed and developed by <span class="font-semibold">Haraprasad Mahapatra</span>
+            </p>
+
+            <p class="text-md">
+                <a href="https://www.linkedin.com/in/haraprasad-mahapatra-549a1a280/"
+                    class="text-teal-400 hover:underline hover:text-teal-300 transition duration-300" target="_blank">
+                    Click here to Connect
+                </a>
+            </p>
+        </div>
+
+    </footer>
+    <script src="/javascripts/home.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZestyCart-Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../stylesheets/style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+  <!-- nav bar here -->
+  <nav class="navbar">
+    <div class="logo">ZestyCart</div>
+    <ul class="nav-links" id="navlinks">
+      <li><a href="/home">Home</a> </li>
+      <li><a href="/menu">menu</a> </li>
+      <li><a href="/cart">cart</a> </li>
+      <li><a href="/logout">Logout</a> </li>
+      <li><a href="/admin_home">Admin</a> </li>
+    </ul>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+  <!-- ------------- -->
+  <main>
+    <section id="about" style="padding: 4rem 2rem;">
+      <div style="max-width: 1000px; margin: auto; text-align: center;">
+        <h2 style="font-size: 2.5rem; margin-bottom: 1rem; color: #0f172a;">Our Story</h2>
+        <p style="font-size: 1.1rem; color:black; line-height: 1.8;">
+          <strong>ZestyCart</strong> was born from the love of traditional Indian cuisine. We blend age-old recipes with
+          modern culinary techniques to bring you a truly immersive dining experience. From farm-fresh ingredients to
+          timeless flavors, every plate we serve tells a story of culture, love, and authenticity.
+        </p>
+
+      </div>
+    </section>
+
+    <section id="why-us" style="padding: 4rem 2rem;">
+      <div style="max-width: 1000px; margin: auto; text-align: center;">
+        <h2 style="font-size: 2.5rem; margin-bottom: 2rem; color: #0f172a;">Why Choose Us?</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center;">
+
+          <div style="flex: 1 1 250px; border-radius: 1rem; padding: 2rem;">
+            <h3 style="color: black;">Fresh Ingredients</h3>
+            <p>We use locally sourced, organic ingredients to ensure every bite is full of flavor and nutrition.</p>
+          </div>
+
+          <div style="flex: 1 1 250px; border-radius: 1rem; padding: 2rem;">
+            <h3 style="color: black;">Authentic Recipes</h3>
+            <p>Our recipes have been passed down for generations, delivering timeless taste with every dish.</p>
+          </div>
+
+          <div style="flex: 1 1 250px; border-radius: 1rem; padding: 2rem;">
+            <h3 style="color:black;">Fast & Hygienic</h3>
+            <p>Enjoy quick delivery and clean kitchens — because your health is as important as your satisfaction.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <footer>
+        <div class="footer bg-zinc-800 text-white text-center font-light">
+            <p class="text-lg mb-2">&copy; 2025 ZestyCart. All Rights Reserved</p>
+
+            <div class="social-icons flex justify-center gap-6 my-4">
+                <a href="https://www.instagram.com" target="_blank">
+                    <img src="../images/instagram.jpeg" alt="Instagram"
+                        class="w-8 h-8 hover:scale-110 transition duration-300 rounded-full">
+                </a>
+                <a href="https://www.facebook.com" target="_blank">
+                    <img src="../images/facebook.jpeg" alt="Facebook"
+                        class="w-8 h-8 hover:scale-110 transition duration-300 rounded-full">
+                </a>
+                <a href="https://www.twitter.com" target="_blank">
+                    <img src="../images/twitter.png" alt="Twitter"
+                        class="w-8 h-8 hover:scale-110 transition duration-300 rounded-full">
+                </a>
+            </div>
+
+            <p class="text-md mb-1">Designed and developed by <span class="font-semibold">Haraprasad Mahapatra</span>
+            </p>
+
+            <p class="text-md">
+                <a href="https://www.linkedin.com/in/haraprasad-mahapatra-549a1a280/"
+                    class="text-teal-400 hover:underline hover:text-teal-300 transition duration-300" target="_blank">
+                    Click here to Connect
+                </a>
+            </p>
+        </div>
+
+    </footer>
+  <script src="../javascripts/home.js">
+  </script>
+</body>
+
+</html>

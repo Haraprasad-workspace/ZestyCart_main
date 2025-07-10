@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZestyCart-ordersuccess</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../stylesheets/style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+  <!-- nav bar here -->
+  <nav class="navbar">
+    <div class="logo">ZestyCart</div>
+    <ul class="nav-links" id="navlinks">
+      <li><a href="/">Home</a> </li>
+      <li><a href="/menu">menu</a> </li>
+      <li><a href="/cart">cart</a> </li>
+      <li><a href="/logout">Logout</a> </li>
+    </ul>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+  <!-- ------------- -->
+   <main>
+    <div class="flex mt-10 mb-10 flex-wrap items-center justify-center flex-col gap-5">
+        <div class=" bg-white  mt-20 rounded-4xl">
+        <p class="text-3xl text-green-700 p-10">Order succesfull</p>
+        </div>
+        <div class="flex flex-wrap items-center gap-5">
+          <button class="px-3 py-4 bg-green-500 text-white rounded-md" id="download">Download receipt</button>
+          <a href="/"><button class="px-3 py-4 bg-blue-700 text-white rounded-md" id="download">Go to Home</button></a>
+        </div>
+    
+    </div>
+   </main>
+ 
+ 
+  <script src="../javascripts/home.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script>
+let download = document.getElementById('download');
+
+download.addEventListener('click', function() {
+    let items = <%- JSON.stringify(order.items) %>;
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    // Title
+    doc.setFontSize(18);
+    doc.text("ZestyCart Order Receipt", 20, 20);
+
+    // Customer info
+    doc.setFontSize(12);
+    doc.text(`Customer Name: <%= username.name %>`, 20, 30);
+    doc.text(`Customer Email: <%= user.email %>`, 20, 38);
+
+    // Divider line
+    doc.line(20, 42, 190, 42);
+
+    // Items
+    let y = 50;
+    let total =0 ; 
+    items.forEach((item, index) => {
+        doc.setFontSize(12);
+        doc.text(`Item ${index + 1} -`, 20, y);
+        y += 6;
+        doc.text(`Name    : ${item.itemid.itemname}`, 25, y);
+        y += 6;
+        doc.text(`Quantity: ${item.quantity}`, 25, y);
+        y += 6;
+        doc.text(`Price   : ${item.itemid.price} x ${item.quantity} = ${item.itemid.price * item.quantity}`, 25, y);
+        total+=item.itemid.price * item.quantity;
+        y += 10; // extra space after each item
+    });
+    doc.text(`total amount :- ${total}`,25 , y)
+    y+=10;
+
+    // Footer
+    doc.setFontSize(12);
+    doc.line(20, y, 190, y);
+    y += 10;
+    doc.text("Thank you for shopping with us at ZestyCart!", 40, y);
+
+    // Save the PDF
+    doc.save("ZestyCart - Receipt.pdf");
+});
+</script>
+
+
+
+
+</body>
+
+</html>
