@@ -462,14 +462,20 @@ app.post('/register', async (req, res) => {
 
 //post route for add info to menuitemmodeljs 
 app.post('/admin/additem', isloggedin, isadmin, upload.single("imageurl"), async (req, res) => {
+    console.log("NODE_ENV:", process.env.NODE_ENV);
+    console.log("req.body:", req.body);
+    console.log("req.file:", JSON.stringify(req.file, null, 2));
+
     let { itemname, price, description, stock } = req.body;
 
     let imagepath ;
     if(process.env.NODE_ENV==="production"){
-        imagepath = req.file.path;
+        imagepath = req.file ? req.file.path : null;
     }else{
-        imagepath = req.file.filename
+        imagepath = req.file ? req.file.filename : null;
     }
+    console.log("Final image path to save:", imagepath);
+
     try {
         let newitem = await menuitemModel.create({
             itemname,
@@ -481,6 +487,7 @@ app.post('/admin/additem', isloggedin, isadmin, upload.single("imageurl"), async
         res.redirect('/admin/menu')
     }
     catch (err) {
+        console.log("DB Error:", err);
         return res.status(500).render('oops', { message: "something went wrong,sorry for your inconvinience" })
     }
 
