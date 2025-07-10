@@ -54,6 +54,8 @@ function isadmin(req, res, next) {
     try {
         if (adminemails.includes(req.user.email)) {
             return next();
+        }else{
+            return res.status(500).render('oops', { message: "Access Denied : admins are only allowed to access" })
         }
     } catch (err) {
         return res.status(500).render('oops', { message: "Access Denied : admins are only allowed to access" })
