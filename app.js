@@ -304,23 +304,34 @@ app.get('/admin_home', isloggedin, isadmin, async (req, res) => {
         let revenue = totalrevenue[0] ? totalrevenue[0].total : 0;
 
         let totalusers = await userModel.countDocuments();
-
         let totalfooditems = await menuitemModel.countDocuments();
-
         let totalorders = await orderModel.countDocuments();
 
-        let revenueperfood = revenue / totalfooditems;
-        let revenueperorder = revenue / totalorders;
-        let orderperperson = totalorders / totalusers;
+        let revenueperfood = totalfooditems ? (revenue / totalfooditems) : 0;
+        let revenueperorder = totalorders ? (revenue / totalorders) : 0;
+        let orderperperson = totalusers ? (totalorders / totalusers) : 0;
 
-        res.render('admin_home', { revenue, totalusers, totalfooditems, totalorders, revenueperfood, revenueperorder, orderperperson })
+        // Format to 2 decimal places
+        revenue = Number(revenue.toFixed(2));
+        revenueperfood = Number(revenueperfood.toFixed(2));
+        revenueperorder = Number(revenueperorder.toFixed(2));
+        orderperperson = Number(orderperperson.toFixed(2));
+
+        res.render('admin_home', {
+            revenue,
+            totalusers,
+            totalfooditems,
+            totalorders,
+            revenueperfood,
+            revenueperorder,
+            orderperperson
+        });
 
     } catch (err) {
         return res.status(500).redirect('/oops');
     }
+});
 
-
-})
 
 app.get('/ordernow', isloggedin, async (req, res) => {
     let userid = req.user.userid;
