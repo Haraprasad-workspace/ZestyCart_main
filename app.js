@@ -145,7 +145,7 @@ app.get('/cart', isloggedin, async (req, res) => {
 //checks weather the user has cart if yes check the particular item is there or not , if item is there then just increase the quantity 
 //if item is not there then add the item on the cart
 //if cart is not there then create cart and add item 
-app.get('/addtocart/:id', isloggedin, isadmin, async (req, res) => {
+app.get('/addtocart/:id', isloggedin, async (req, res) => {
     try {
         let userid = req.user.userid;
         let itemid = req.params.id;
