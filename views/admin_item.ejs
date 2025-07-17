@@ -15,26 +15,24 @@
 <body class="bg-black text-white font-sans">
 
     <!-- nav bar here -->
-    <nav class="bg-zinc-800 p-4 flex flex-wrap items-center justify-between">
-        <div class="logo text-2xl font-bold">ZestyCart</div>
-        <div class="block md:hidden">
-            <button id="hamburger" class="focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
-                    viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-            </button>
-        </div>
-        <ul id="navlinks" class="w-full md:w-auto md:flex md:items-center hidden md:block space-y-2 md:space-y-0 md:space-x-6 mt-4 md:mt-0">
-            <li><a href="/admin_home" class="hover:text-teal-400">Admin Home</a></li>
-            <li><a href="/admin/menu" class="hover:text-teal-400">Edit Menu</a></li>
-            <li><a href="/admin/additem" class="hover:text-teal-400">Add item</a></li>
-            <li><a href="/admin/orderlogs" class="hover:text-teal-400">Order Logs</a></li>
-            <li><a href="/logout" class="hover:text-teal-400">Logout</a></li>
-            <li><a href="/" class="hover:text-teal-400">User section</a></li>
-        </ul>
-    </nav>
+  <nav class="navbar">
+    <div class="logo">ZestyCart</div>
+    <ul class="nav-links" id="navlinks">
+      <li><a href="/admin_home">Admin Home</a> </li>
+      <li><a href="/admin/menu">Edit Menu</a> </li>
+      <li><a href="/admin/additem">Add item</a> </li>
+      <li><a href="/admin/orderlogs">Order Logs</a> </li>
+      <li><a href="/logout">Logout</a> </li>
+      <li><a href="/">User section</a> </li>
+      
+    </ul>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+  <!-- ------------- -->
 
     <div class="login flex items-center justify-center min-h-screen p-4">
         <form class="w-full max-w-lg border-4 border-white/30 p-6 sm:p-10 rounded-lg"

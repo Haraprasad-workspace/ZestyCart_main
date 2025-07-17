@@ -6,6 +6,18 @@
     box-sizing: border-box;
 }
 
+
+@media (max-width: 600px) {
+  .table-row {
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .cell {
+    padding: 4px;
+  }
+}
+
 body {
 
     background: url('../images/img.jpg') no-repeat center center/cover;
