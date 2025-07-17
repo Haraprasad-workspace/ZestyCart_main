@@ -79,8 +79,8 @@ function issuperadmin(req, res, next) {
 
 //ALL THE GET ROUTES ARE HERE ------>
 
-
-app.get('/', isloggedin, (req, res) => {
+//this is home page 
+app.get('/', (req, res) => {
     res.render('home')
 })
 
@@ -112,7 +112,8 @@ app.get('/menu', isloggedin, async (req, res) => {
 })
 
 //route for the admin to add any food item
-app.get('/admin/additem', isloggedin, isadmin, (req, res) => {
+//only the email , in isloggedin , isadmin , issuperadmin is able to add the data 
+app.get('/admin/additem', isloggedin, isadmin, issuperadmin , (req, res) => {
     res.render('admin_item');
 })
 
@@ -475,7 +476,7 @@ app.post('/register', async (req, res) => {
 })
 
 //post route for add info to menuitemmodeljs 
-app.post('/admin/additem', isloggedin, isadmin, upload.single("imageurl"), (req, res) => {
+app.post('/admin/additem', isloggedin, isadmin , issuperadmin ,  upload.single("imageurl"), (req, res) => {
     let { itemname, price, description, stock } = req.body;
 
     cloudinary.uploader.upload(req.file.path, async function (err, result){
