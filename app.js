@@ -512,7 +512,7 @@ app.post('/admin/edit_info/:id', isloggedin, isadmin, async (req, res) => {
         })
         res.redirect('/admin/menu');
     } catch (err) {
-        return res.status(500).render('oops', { message: "something went wrong,sorry for your inconvinience" })
+        return res.status(500).render('oops', { message: "only adminstrator is allowed to edit info" })
     }
 
 
