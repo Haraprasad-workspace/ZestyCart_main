@@ -80,7 +80,7 @@ function issuperadmin(req, res, next) {
 //ALL THE GET ROUTES ARE HERE ------>
 
 //this is home page 
-app.get('/', (req, res) => {
+app.get('/', isadmin , (req, res) => {
     res.render('home')
 })
 
@@ -280,7 +280,7 @@ app.get('/admin/edit_info/:id', isloggedin, isadmin, async (req, res) => {
 
 })
 
-app.get('/admin/removeitem/:id', isloggedin, isadmin, async (req, res) => {
+app.get('/admin/removeitem/:id', isloggedin, isadmin,issuperadmin, async (req, res) => {
     try {
         let item = await menuitemModel.deleteOne({ _id: req.params.id });
         res.redirect('/admin/menu')
@@ -396,9 +396,6 @@ app.get('/oops', (req, res) => {
     res.render('oops', { message: "Something Went wrong , try refreshing the page or restart the website" })
 })
 
-
-
-
 //ALL THE POST ROUTES START HERE ----->
 
 
@@ -502,7 +499,7 @@ app.post('/admin/additem', isloggedin, isadmin , issuperadmin ,  upload.single("
 });
 
 
-app.post('/admin/edit_info/:id', isloggedin, isadmin, async (req, res) => {
+app.post('/admin/edit_info/:id', isloggedin, isadmin,issuperadmin, async (req, res) => {
     try {
         let { itemname, price, description } = req.body;
         let item = await menuitemModel.updateOne({ _id: req.params.id }, {
