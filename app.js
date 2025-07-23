@@ -80,7 +80,7 @@ function issuperadmin(req, res, next) {
 //ALL THE GET ROUTES ARE HERE ------>
 
 //this is home page 
-app.get('/', isadmin , (req, res) => {
+app.get('/', isloggedin , (req, res) => {
     res.render('home')
 })
 
